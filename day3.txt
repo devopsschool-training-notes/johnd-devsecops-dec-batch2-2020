@@ -1,0 +1,90 @@
+http://52.66.246.126:8080/
+devops
+devops123
+
+Jenkins is a CI tools
+- Its not a deploy tool.
+	- Ansible - chef - Puppet - UDeploy - OctopusDeploy - Terraform
+
+Jenkins Authentication and Authorization
+========================================
+
+
+How to get Imm feedback using Jenkins?
+----------------
+		Email
+			SMTP server
+			- Mailer Plugins
+			- Ext Email Plugins
+		Chat
+			Team
+			Slack
+			Whatsapp
+			Jabbar
+			Skype
+			--- Install plugins	DONE
+			--- Config plugins
+			--- Use plugins
+		Dashboard
+			using code
+			Groovy DSL 
+			--- jenkinsfile
+
+target/surefire-reports/*.xml 
+
+http://52.66.246.126:8080/job/RajeshKumar/view/CICD%20Pipeline/job/Raj-Pack/lastSuccessfulBuild/artifact/target/yoodle-5.0.0.jar
+
+
+https://github.com/devops-school/helloworld-java-maven
+
+Jenkins Authentication and Authorization
+========================================
+Authentication  - How to login in Jenkins???	
+Authorization - What you are allowed to do???
+
+
+How to call Multiple jenkinsfile using ONE?
+==============================================
+Master Slave?
+		Local Vms	
+		Container	Docker
+		Cloud Vms	AWS 
+==============================================
+Selenium
+Jmeter
+-------------
+20 mins.
+
+https://www.devopsschool.com/blog/secure-login-dev
+test1
+Test123
+
+https://www.devopsschool.com/trainer/devops-trainer-bangalore.html
+DevOps Trainer in Bangalore | Corporate DevOps Training and Consultants in Bangalore| DevopsSchool
+
+
+https://www.google.com/
+devopsschool
+====================================================
+Lab 1 - 20 Lab -
+=====================================================
+Step 1 - Install Selenium IDE
+Step 2 - Open Google.com
+Step 3 - Search "devopsschool.com"
+Step 4 - Client DevOpsSchool.com
+Step 5 - verify text "Welcome to DevOps School"
+=============
+Save that project for next demo
+
+
+
+
+
+
+
+
+
+
+
+
+
