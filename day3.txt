@@ -76,8 +76,24 @@ Step 5 - verify text "Welcome to DevOps School"
 =============
 Save that project for next demo
 
+======================================================
+Step 1 - Download Java 8 JDK and set JAVA_HOME
 
+Step 2 - Download selenuium package from https://www.selenium.dev/downloads/
+ - https://selenium-release.storage.googleapis.com/3.141/selenium-java-3.141.59.zip
 
+& extract it under C:\tools\selenium\clients\selenium-java-3.141.59
+
+Step 3 - Download Driver from https://github.com/mozilla/geckodriver/releases
+- Link - https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-win64.zip
+& Extract into C:\tools\selenium\web-drivers
+
+Step 4 - Download Code from github note location
+
+Step 5 - RUN This command
+
+javac -cp C:\tools\selenium\clients\selenium-java-3.141.59\libs\* example1.java
+java -cp "C:\tools\selenium\clients\selenium-java-3.141.59\libs\*;" example1
 
 
 
