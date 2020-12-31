@@ -61,3 +61,49 @@ devops
 devops123
 
 https://www.guru99.com/jmeter-performance-testing.html
+
+=====================================================
+Jacoco
+https://www.devopsschool.com/path/
+========================
+What is Jacoco?
+----------------
+	Code Coverage Tool
+	Free
+	Open Source
+	Written in Java
+	its a jar
+		Loaded in JVM for coverage.
+	Dynamic Intrumentations
+
+What is Code Coverage?
+	- Quality of Test
+	- Percentage of Code which has been tested? using AT & UT
+
+Test Coverage?
+===============================
+
+
+
+
+
+Step 1- Download Java and Install and JAVA_HOME
+
+Step 2 - Download - Extract and SET MAVAVEN
+
+Step 3 - Clone 
+https://github.com/scmgalaxy/jacoco-maven-unittestv2
+
+Step 4 - $ mvn test
+
+
+
+
+
+
+
+
+
+
+
+
