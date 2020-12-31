@@ -95,8 +95,27 @@ Step 3 - Clone
 https://github.com/scmgalaxy/jacoco-maven-unittestv2
 
 Step 4 - $ mvn test
+==================================================================
+Docker => SonarQube -> Jenkins -> Selen -> Jmeter -> Jacoco
+----------------------------------------------------------
+Docker Compose
+Maven
+-------------------
+AWS - Demo and Lab
+=----------===========================
+What is DevSecOps?
+	>>>> 
+=========================================
+https://www.devopsschool.com/kit/master-in-devops-engineering.htmlhttps://www.devopsschool.com/kit/master-in-devops-engineering.html
 
+Youtube = TheDevOpsSchool
 
+wwww.DevOpsSchool.com
+
+Rajesh Kumar
+rajesh@devopsschool.com
+
+www.RajeshKumar.xyz
 
 
 
