@@ -1,0 +1,16 @@
+==================
+https://www.devopsschool.com/blog/if-a-linux-build-server-suddenly-starts-getting-slow-what-would-you-check/
+How to install jemeter?
+
+Step 1 - Download JDK and Set JAVA_HOME
+
+Step 2 - Download and Extract Jmeter
+https://jmeter.apache.org/download_jmeter.cgi
+
+Step 3 - Start Jmeter
+
+=======Plugins======
+Custom Thread Group
+3 basic Graph
+Throughput Shaping Timer
+Dummy Sampler
