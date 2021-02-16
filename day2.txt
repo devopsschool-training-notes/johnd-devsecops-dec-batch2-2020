@@ -1,92 +1,79 @@
-65.0.71.71
-=====================
-
-http://65.0.71.71:9000/
+http://65.0.131.107:9000/
 admin
 admin
----------------------
-Step 1 - Download SonarQube Scanner @c drive and extract it
 
-Step 2 - Clone Source code from here
+Example Code - https://github.com/SonarSource/sonar-scanning-examples
+- sonarqube-scanner
+
+Small code
 https://github.com/devopsschool-demo-labs-projects/java-sonarqube-helloworld-src
 
-Step 3 - Change "sonar-project.properties" with meta info
 
-Step 4 - Run scanner of the source code.
+C:\tools\sonarqube\scanner\sonar-scanner-4.4.0.2170-windows\bin\sonar-scanner.bat
 
-C:\tools\sonarqube\scanner\sonar-scanner-cli-4.5.0.2216-windows\bin\sonar-scanner.bat
-on
-SRC code
-
-===============15 mins========
-=============================================================
-http://65.0.71.71:8080/
-devops
-devops123
-=============================================================
+=========================================================================================
+=========================================================================================
 What is Jenkins?
+------------------------------
 	CI tool
-	Continouns Integration
+	Dev in Java
 	Release
-		Jenkins 		=== Focus
-				Open Source
-				Free
-				Most popular
-		Enterprise Jenkins
-		Jenkins X
-		Blue Ocean
-	Based on Plugins
-	Written in Java
-	Version
-		2.X
+		community	- Part of the session - FREE
+		enterprise
+		blue ocean
+		jenkins X
+	Based on the plugins concept
+		
 
-What is Continouns Integration?
------------------------------------
-- Auto Build + Auto Testing
------------------------------------
-	Imm Feedback
+What is CI?
+	Continous Integration
+http://www.devopsschool.com/blog/top-10-continuous-integration-tool/
 
-
-Continounsly Integrate all SDLC Process
-Continounsly Integrate all Team
-Continounsly Integrate all Tools
-------------------------------------------			
-				CI
-				- imm feedback for everything.
-
-PLAN -> Code -> Analyze -> Build -> UT -> Package -> Archive -> Dep2Qa -> AT -> CC -
--------------------------------------------------------------------------------------
-Jira -> Git -> SonarQube -> Maven -> Junit -> Jar -> Artifactory -> Ansible -> Selenium -> Jacoco
-=============================================================================================
-					Jenkins	
-						Dashboard
-						Scheduling
-						Integrate
-						Imm feedback						
-
-
-							IF all passed - Release
-							If one failed - repeat
-
-==============================================
-Other tools?
-- Teamcity 
-- Bamboo
-- UBuild
-- Travis Ci
-- Gitlab
-
+Auto Build + Auto Test
 =======================
-How to install it?
-- Java
-- jenkins
-==============================================================
+	Imm feedback
 
-Architecute of Jenkins
-========================
-Jenkins Server
-	Dashboard - 8080
-	Agent for Build etc.
+===========================SDLC=======================================
+PLAN -> Code -> CodeReview -> Build -> UT -> Pack -> Archive -> Deploy -> AT -> CodeCoverage
+							ALL PASSES - Go to Release
+							ONE failed - Repeat
+---------------------------------------------------------------------------------------------
+Jira -> Git  -> SonarQube  -> Maven -> Junit -> Jar -> Artifactory -> Ansible -> Selenium -> Jacoco
+
+Team -> Arch -> Dev -> QA -> Ops
+
+Process ----> 
+
+Integrate all 
+	Phases of SDLC
+	Tools 
+	Teams
+	Process
+		Continously with Imm feedback & automated way
+------------------------------------------------------------------------------------------------
+					Jenkins
+
+
+Other tool
+=========================
+Teamcity 
+Bamboo
+
+How jenkins Works??? Jenkins Architecture.
+========================================================
+http://www.devopsschool.com/blog/jenkins-architecture-explained/
+
+How to install it?
+=================================
+https://devopsschool.com/tutorial/jenkins/jenkins-installation-and-configuration.html
+
+
+http://65.0.131.107:8080/login?from=%2F
+rajesh
+devopsschool
+
+
+
 
 
 ===================================================================
@@ -114,6 +101,8 @@ Q4. What is your builder?
 	batch		which script or commands	- Tools is installed in Agent?
 Q5. Where you want to send Feedback?
 		Email.
+
+
 --------------------------------------
 Q1. What is your tech?
 		java
@@ -129,9 +118,8 @@ Q4. What is your builder?
 		maven - 
 			compile - compile
 			test - test
-			package - package
-			verify - ver
-			install - install
+			package - package			
+		        install - install
 https://www.youtube.com/thedevopsschool
 Q5. Where you want to send Feedback?
 		rajesh@devopsschool.com
@@ -143,27 +131,36 @@ Lab 1 - Create a folder and Create a job with Maven
 Lab 2 - Create a another job using Ant
 https://github.com/scmgalaxy/helloworld-java-ant
 
-====================================================================
-https://www.devopsschool.com/blog/how-to-schedule-and-trigger-a-jenkins-job-automatically/
 
-How to Schedule a job in Jenkins?
-=======================================
-1. At Fixed time					= Build periodically
-2. At Fixed time but Build only when SCM Change		= Poll SCM
-3. Build this if Some other job got build.		= Build after other projects are built
-4. Build using Script from Remote Location		= Trigger builds remotely (e.g., from scripts)
-5. Build this job when someone Push code into Github	= GitHub hook trigger for GITScm polling
+================================================================
+Jenkins
+
+		Scheduling
+		Integration
+		Feedback
+		Dashboard = Pipeline
+
+Scheduling
+======================================================================
+Trigger a Job @ certain time					=== Build periodically
+
+Trigger a Job @ certain time && if SCM changes are there	=== Poll SCM
+
+Trigger a Job when someone pushes into github
 https://www.devopsschool.com/blog/how-to-build-when-a-change-is-pushed-to-github-in-jenkins/
 
-6. Build Another Job after this job
-	Post-build Actions >> Build another Project
+Trigger a Job using Script/Api
+https://www.devopsschool.com/blog/jenkins-command-line-reference-for-login-and-trigger-a-job/
+
+curl -X POST --user rajesh:1168950c3bd8215332efb6ca35399a118d http://65.0.131.107:8080/job/RajeshK/job/compile/build?
 
 
-curl --user devops:11297098fe162b7d079644855e2eafa82e -X POST http://65.0.71.71:8080/job/RajeshKumar/job/job3/build?delay=0sec
 
 
+Trigger this job when another job is built	= Build after other projects are built
 
-
+Trigger another job after this Job		= 
+		Post Build Action => Build Other project
 
 
 
