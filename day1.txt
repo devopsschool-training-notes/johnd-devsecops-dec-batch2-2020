@@ -1,8 +1,3 @@
-1234567890
-======================
-Rajesh Kumar
-------
-Shardha
 -------------------------
 4 Days - DevSecOps
 -------------------------
@@ -18,649 +13,404 @@ Jmeter		HALF
 
 Jacoco		HALF
 DevSecOps 	- THEoRY	HALF
-===================
-Start - 9 30 AM IST
-End - 6:00 PM IST
--------------------
-Lunch - 1 - 2 PM IST
-COFFEE
-	15-20 mins
-	11 AM 
-	3.30 PM IST
-==============================
-Demo + LAB 
-===============
-AWS - 
-===========================================================================
-===========================================================================
-Vmware
---------------
-	vm mgmt tool
-
-
+===============================
+9:30 AM  - 6:00 PM
+===============================
+Lunch - 1:00 - 2:00 
+BREAK - 
+	15mins
+	11.30
+	4.00
+===================================
+===================================
 What is Docker?
-----------------
-	Its a Platform
-	Aka Docker Engine
-	Container mgmt tool
+-----------------------------------
+	Container mgmt tool/platform
 	Release
-		Docker Community
-		Docker Enterprise	https://www.devopsschool.com/blog/
-	Verrsion
+		Community
+		Enterprise
+		https://www.devopsschool.com/blog/
+	Version
 		20.X
 	Written in Golang
-	Written by Soloman - in 2013
-
-	tool	
-	-------------
-	- Saving Cost	- For running APPS/Software in DataCenter/SDLC Cycle
-	- Saving time	- For Deployment/Rollback of APPS/Software
-	- Impr* Quality - Software Quality
-	==================	
-		
-	mgmt
-
+	By SOloman hykes
 	
-	Container????
-	Container is running your APP with complete inde* resources required.
-	
-	Container is 
-			ONE USER by USER NS
-				attached with
-					ONE PID
-					ONE MNT (ROOT + USER + APP Fileststem)
-					ONE NET
+
+mgmt ---? 
+tool
+	Save time
+	Save Cost
+	Improve Quality
+	-------------------------------
+		to RUN app(s) in DATACENTER
+
+What is Container?
+-------------------------------------
+a lightweight APP runtime independent env
+
+is a ONE USER NS 
+		attached to 
+				ONE NET NS
+				ONE PID NS 
+				ONE MNT NS
+
+MNT
+-------------------
+FILESYSTEM
+	a collections of file/dir with one objective
+
+TYPES
+	BOOT FILESYSTEM	 - KERNAL
+	ROOT 	= CONTAINER 	=== UBUNTU = REDHAT = FEDORA
+	USER	= CONTAINER
+	APP	= CONTAINER
 
 
-===========================================================================
-What are the components we need to RUN one APP/Software? ANy APP?
-What are the resources we need to RUN one APP/Software? ANy APP?
----------------------------------------------------------------------------
-HARDWARE(CPU+RAM+STORAGE)
-	--- OS
-		Kernal
-Type of Kernal Programs	AKA Namespace
+What r the Resources we NEED to run APP?
+----------------------------------------
+HARDWARE
+	OS
+	  Kernel
+		Namespace
+				ALLOWED		CAN		NEED
+			MOUNT	1		MULTIPLE	ONE
+			PID MAP	1		MULTIPLE	ONE	
+			USER	MULTIPLE	MULTIPLE	ONE
+			NETWORK	1		MULTIPLE	ONE
 			
-						NEED	ALLOWED in OS	ALLOWED By KERNAL
-- USER	by USER NS				1	MULTIPLE	MULTIPLE			
-- RUNTIMELIB-APP(FileSystem)MNT	by MNT NS	1	1		MULTIPLE
-- PID by PID NS					1	1		MULTIPLE	
-- NETWORK - PORT by NET NS			1	1		MULTIPLE
+		Cgroups		- Assign CPU and RAM to PID
+		Capbilities	- Decide you are ROOT or Not root.
 
-FileSystem
---------------
-collection of dirs/files FOR one Specific purpose.
 
-APP -> Tomcat -> JAVA -> OS
-Team -> Rootfs ->
-------------------------------
-	FileSystem
 
-Types of FileSystem
-------------------------------
-BOOT FileSystem	AKA Kernal	(LINUX + WINDOWS)
-ROOT FileSystem	"/"		RHEL - CENTOS - UB - FEDORA - SUSE - KALi
-USER FileSystem	
-APP FileSystem
-
-TO Run any ONE APP
----------------------------
-BOOT + ROOT + USER + APP
-1 	1 	1 	1
-================================
-		OS
-Kernal
+			ONE APP
+			- Filesystem
+		  	- ONE PID for Allocating a CPU and RAM
+			- ONE USER
+	   		- Network
+Kernel		
 The kernel is a computer program at the core of a computer's operating system that has complete control over everything in the system.
 
-cgroups
-cgroups (abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
----cgroups allocate CPU+RAM to PID.
-
-==================================================
-PC - Personal Computing
-========================================================================
-========================================================================
-Evolution of Computing
------------------------------------------------------------------------
-				For running ApP
----------------------------------------------------------------------------
-
-Before 2000			2000+			2020
-		Internet
-Physcial Server			Virtual Servers		Containers	
-
 =========================================================================
-Docker Architecture
-Docker Components
-Docker Installation
-Docker Lifecycle - Work with Containers
-- DEMO and LAB
-Docker Lifecycle - Using Containers
-- DEMO and LAB
-	
-====================================
-Docker Architecture
+Evolution of Computing?
+-------------------------------------------------------------------------
+PHYSICAL SERVER		Virtual Server		Container
+---------------------------------------------------------------------
+		Internet
+HARDWARE
 
-Human -> Docker Client ---REST-> Docker Deamon -> ContainerD -> Kernal
-	===================================
+=================================================================
+PC = PERSONAL COMPUTING
+Why We need it?
+
+How docker works? Docker Architecture!!
+========================================================
+Human -> Docker Client -----REST----> Docker Server -> ContainerD -> Kernal
+        ==========================================
 			Docker Engine
 
+Other tools
+https://www.devopsschool.com/blog/list-of-top-container-runtime-interface-projects/
 
-Docker Components
-=======================================
-Docker Engine	 - As discussed.
+Components of Docker
+- Docker Engine			DONE
+- Docker Image
+	VM Image
+	-------------------
+	BOOT FS
+	ROOT FS
+	USER FS
+	AP FS
 
-Docker Images
-		Collections of Filesystem(S)
-		- ROOT FileSystem	"/"		RHEL - CENTOS - UB - FEDORA - SUSE - KALi
-		- USER FileSystem			tomcat	
-		- APP FileSystem			jdk + tomcat
+	DOCKER Image
+	-------------------
+	ROOT FS
+	USER FS
+	APP FS
 
-		One Copy of Image - Get Mounted to Each container.
+	ONE COPY OF IMAGE - GET MOUNTED IN EACH CONTAINER
+	ONE IMAGE - yOu can create as many container.
 
 Docker Registry
-		Contains Repository
-		- Image filesystems(s)
-		
-		Public
-			hub.docker.com
-			google registry
-		Pvt
-			artifactory
-			nexus
+	Repository
+		VERSION OF FILESYSTEM
+			ROOT FS
+			USER FS
+			APP FS
+
+	Public
+		docker hub
+		google registry
+		Azure Registry
+	Pvt
+		Artifactory
+		nexus
 
 Docker Container
-	
-When we "RUN" "Docker Image", 
-			it create one USER using USER NS
-			- One Copy of Image get mounted to USER - using MNT NS
-			- ONE PID get attached to USER		- using PID NS
-			- ONE NETwork get attached to USER	- using NET NS	
+	When we RUN Docker Image using Docker Client.
+	        ---
 
-=====================================================
-Docker Installation
-=====================================================
-13.232.180.186
-centos
-key - 
-https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+		Create ONE USER
+		Create ONE NET
+		CREATE ONE PID 
+		CEATE ONE MOUNT FROM DOCKER IAMGE
 
-  1  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-    2  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-    3  sudo yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    4  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
-    5  sudo yum install -y docker-ce
-    6  sudo yum install docker-ce
-    7  docker -v
-    8  sudo systemctl enable docker
-    9  sudo systemctl start docker
-   10  docker info
-   11  clear
-   12  docker version
-   13  clear
-   14  docker -v
-   15  docker info
-   16  clear
-   17  ls
-   18  docker help
-   19  clear
-   20  ls
-   21  history
-
-Docker Lifecycle - Work with Containers
-- DEMO and LAB
-======================================================
-
-VMs Lifecycle 
-------------------------------------------------------------
-Create -> Start -> Stop -> Start -> Restart -> Pause -> Unpuase -> kill -> Remove
-
-Container Lifecycle 
-------------------------------------------------------------
-Create -> Start -> Stop -> Start -> Restart -> Pause -> Unpuase -> kill -> Remove
+		ATTACH NET + PID + MOUNT TO USER
+		================================
+			Container
 
 
-What App you want to run???
-		rootfs			ubuntu
-		rootfs + app		ubuntu + jdk +  jenkins		
-========================
- 14  docker -v
-   15  docker info
-   16  clear
-   17  ls
-   18  docker help
-   19  clear
-   20  ls
-   21  history
+How to work with Docker? Docker Work flow
+===============================================
+Human -> Docker Client -----REST----> Docker Server 
+
+				CHECK IF IMAGE EXIST in SAME MACHINE
+				YES  -- -> ContainerD -> Kernal
+
+				NO - Download from HUB + -> ContainerD -> Kernal
+
+VMS LifeCYCLE
+-----------------------------------------------------
+create -> Start -> STOP -> START -> RESTART -> PAUSE -> Unpause -> KILL -> Remove
+
+
+Container LifeCYCLE
+-----------------------------------------------------
+create -> Start -> STOP -> START -> RESTART -> PAUSE -> Unpause -> KILL -> Remove
+
+13.127.224.4
+UserName - centos
+Password - centos123
+
+$ sudo -s
+
+    9  docker version
+   10  clear
+   11  docker info
+   12  docker v
+   13  docker -v
+   14  docker help
+   15  clear
+   16  history
+
+ 15  clear
+   16  history
+   17  clear
+   18  docker images
+   19  docker ps
+   20  docker ps -a
+   21  docker pull jenkins/jenkins
    22  clear
    23  docker images
-   24  docker ps
-   25  docker ps -a
-   26  docker pull jenkins/jenkins
-   27  clear
-   28  dcoker images
-   29  docker images
-   30  docker create --name rajesh1 jenkins/jenkins
-   31  docker create --name rajesh2 jenkins/jenkins
-   32  docker create --name rajesh3 jenkins/jenkins
-   33  docker ps
-   34  docker ps -a
-   35  clear
-   36  docker ps -a
-   37  docker start 6cd5d7fc37a6
-   38  docker ps -a
-   39  docker start 27576c86ad86
-   40  clear
+   24  clear
+   25  dokcer images
+   26  docker images
+   27  docker create jenkins/jenkins
+   28  docker ps
+   29  docker ps -a
+   30  docker ps -a
+   31  docker create jenkins/jenkins
+   32  clear
+   33  docker ps -a
+   34  docker start 2bc3f0fad4a5
+   35  docker ps -a
+   36  docker stop 2bc3f0fad4a5
+   37  docker ps -a
+   38  clear
+   39  docker ps -a
+   40  docker start 2bc3f0fad4a5
    41  docker ps -a
-   42  docker stop 6cd5d7fc37a6
+   42  docker restart 2bc3f0fad4a5
    43  docker ps -a
-   44  docker create jenkins/jenkins
-   45  docker ps -a
-   46  docker start 2937eac8cb82
-   47  clear
+   44  clear
+   45  docker pause 2bc3f0fad4a5
+   46  docker ps -a
+   47  docker unpause 2bc3f0fad4a5
    48  docker ps -a
-   49  docker stop 27576c86ad86
-   50  docker ps -a
-   51  clear
-   52  docker start 27576c86ad86
+   49  clear
+   50  docker kill 2bc3f0fad4a5
+   51  docker ps -a
+   52  docker rm 2bc3f0fad4a5
    53  docker ps -a
-   54  docker restart 2937eac8cb82
-   55  docker ps -a
-   56  clear
-   57  docker pause 2937eac8cb82
-   58  docker ps -a
-   59  docker unpause 2937eac8cb82
-   60  docker ps -a
-   61  docker kill 19d037104d62
-   62  clear
-   63  docker ps -a
-   64  docker kill 2937eac8cb82
-   65  docker ps -a
-   66  docker
-   67  clear
-   68  docker ps -a
-   69  docker rm 27576c86ad86
-   70  docker rm 2937eac8cb82
-   71  docker ps -a
-   72  clear
-   73  docker ps -a
-   74  docker start 6cd5d7fc37a6 19d037104d62
-   75  docker ps -a
-   76  clear
-   77  docker ps
-   78  docker stop 6cd5d7fc37a6 27576c86ad86 19d037104d62
-   79  docker ps
-   80  docker rm 6cd5d7fc37a6 27576c86ad86 19d037104d62
-   81  docker ps -a
-   82  clear
-   83  docker ps -a
-   84  history
-
-=================================================
-QA Assignment
-----------
-STOP vs KILL
-Pause VS Unpause
-----------
-	HINTS - docker help
-		google.com
+   54  docker create jenkins/jenkins
+   55  clear
+   56  docker ps -a
+   57  docker start a03dbea7efbd
+   58  docker start a03dbea7efbd 036cf5155415
+   59  docker ps -a
+   60  docker stop a03dbea7efbd 036cf5155415
+   61  clear
+   62  docker start a03dbea7efbd 036cf5155415
+   63  clear
+   64  docker ps -a
 
 
-IP - 13.232.180.186
-Ussername - centos
-Password - centos123
-====================================
+How to install it?
+https://devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
 
 
-When we "RUN" "Docker Image", 
-			it create one USER using USER NS
-			- One Copy of Image get mounted to USER - using MNT NS
-			- ONE PID get attached to USER		- using PID NS
-			- ONE NETwork get attached to USER	- using NET NS	
+Jenkins
+	WEB BASED TOOL
+	JAVA
+		Debian
+	8080 port
 
-
-
- 85  clear
-   86  clear
-   87  docker ps
-   88  docker ps -a
-   89  ps -eaf | grep docker
-   90  ps -eaf | grep containerd
-   91  which docker
-   92  docker images
-   93  docker create --name=rajesh1 jenkins/jenkins
-   94  docker ps
-   95  docker ps -a
-   96  clear
-   97  ps -eaf | grep containerd
-   98  ps -eaf | grep docker
-   99  docker ps -a
-  100  docker start ed145bf7be40
-  101  ps -eaf | grep docker
-  102  ps -eaf | grep containerd
-  103  docker create --name=rajesh2 jenkins/jenkins
-  104  docker start rajesh2
-  105  ps -eaf | grep containerd
-  106  clear
-  107  docker ps
-  108  ps -eaf | grep containerd
-  109  clear
-  110  ps
-  111  ps -eaf | grep 8587
-  112  ps -eaf | grep 8585
-  113  ps -eaf | grep 7451
-  114  ps -eaf | grep 7443
-  115  ps -eaf | grep 2670
-  116  ps -eaf | grep 1236
-  117  clear
-  118  ps -eaf
-  119  clear
-  120  ls
-  121  ps -eaf | grep containerd
-  122  ps -eaf | grep 19959
-  123  clear
-  124  df -kh
-  125  cd /var/lib/docker/overlay2/08aec5c4402cea58d326b1473385cdfcbeb4781ae1155efa623d24ff233a8a69/merged
-  126  ls
-  127  pwd
-  128  cd /
-  129  ls
-  130  clear
-  131  df -kh
-  132  docker ps
-  133  docker exec  7b75e911ff77 ls /
-  134  docker exec  ed145bf7be40 ls /
-  135  docker exec  ed145bf7be40 ls /tmp
-  136  docker exec  7b75e911ff77 ls /tmp
-  137  docker exec  7b75e911ff77 touch /tmp/rajesh.txt
-  138  docker exec  7b75e911ff77 ls /tmp
-  139  docker exec  ed145bf7be40 ls /tmp
-  140  clear
-  141  ps -eaf
-  142  clear
-  143  docker ps
-  144  docker exec 7b75e911ff77 ps -eaf
-  145  docker exec ed145bf7be40 ps -eaf
-  146  clear
-  147  docker ps
-  148  docker inspect 7b75e911ff77 | grep -i ip
-  149  docker inspect ed145bf7be40 | grep -i ip
-  150  ping 172.17.0.2
-  151  ping 172.17.0.3
-  152  clear
-  153  history
-
-====================================================================
-How to use container?
---------------------------------------
-PHYSCIAL Server		Virtial Server		Container 
-is running		is running		is running
-as long as 		as long as		as long as  	
-PID 1 is running	PID 1 is running	PID 1 is running
-
-PID 1 is SYSTEMD	PID 1 is SYSTEMD	PID 1 can be anything				
-						java
-						pytghon
-						bash
-						mysql
-	
----------------------------------------------------------------------------------
-run
----------------
-pull -> create -> start -> Attached to container or become a container
-
----------------------------------------------------------------------------------
-run -d 
----------------
-pull -> create -> start -> DO NOT Attached to container or DO NOT  become a container
-
-
- 154  clear
-  155  docker ps
-  156  docker exec 7b75e911ff77 ps -eaf
-  157  docker exec 7b75e911ff77 kill 1
-  158  docker ps
-  159  docker ps -a
-  160  clear
-  161  ps -eaf
-  162  clear
-  163  docker ps
-  164  clear
-  165  ps
-  166  docker run jenkins/jenkins
-  167  docker ps
-  168  history
-  169  docker ps -a
-  170  clear
-  171  docker run -d jenkins/jenkins
-  172  docker run -d jenkins/jenkins
-  173  docker run -d jenkins/jenkins
-  174  docker run -d jenkins/jenkins
-  175  docker ps
-  176  docker run ubuntu
-  177  deocker ps
-  178  docker ps
-  179  docker ps -a
-  180  ls
-  181  ls
-  182  ls
-  183  top
-  184  clear
-  185  docker ps -a
-  186  docker run -it -d ubuntu /bin/bash
-  187  docker ps
-  188  docker run -it ubuntu /bin/bash
-  189  docker ps
-  190  clear
-  191  history
-
-
-How to use container?
 ===========================================
-1. Go inside
-	using /bin/bash
-exec
-	it would execute any executable inside a container
-	using -it and /bin/bash - u can inside it.
-attach
-	it get attached to PID1
-
- 192  clear
-  193  docker ps
-  194  docker exec 0cd49b0de420 ls
-  195  clear
-  196  docker exec -it 0cd49b0de420 /bin/bash
-  197  docker exec -it 0cd49b0de420 /bin/bash
-  198  docker ps
-  199  clear
-  200  docker ps
-  201  docker attach 4d7da74d97a3
-  202  clear
-  203  docker ps
-  204  docker attach 77a1afec638e
-  205  clear
-  206  docker ps
-  207  docker attach 3b9e7edeec1a
-  208  docker ps
-  209  clear
-  210  history
-
-
-2. Access from outside...using IP Address.
-
-How to come out of the container without existing?
-control +p+q
-
-docker run -d jenkins/jenkins
-docker run -d -p 8080:8080 jenkins/jenkins
-docker run -d -p 8090:8080 jenkins/jenkins
-
-
-
- 211  clear
-  212  docker ps
-  213  docker inspect 58e080d0451d | grep -i ip
-  214  ping 172.17.0.4
-  215  clear
-  216  curl http://172.17.0.4:8080
-  217  clerar
-  218  clear
-  219  docker ps
-  220  080d0451d   jenkins/jenkins   "/sbin/tini -- /usr/…"   22 minutes ago   Up 22 minutes   8080/tcp, 50000/tcp   crazy_mendeleev
-  221  ea44bdd99558   jenkins/jenkins   "/sbin/tini -- /usr/…"   22 minutes ago   Up 22 minutes   8080/tcp, 50000/tcp   jovial_leakey
-  222  docker stop $(docker ps -a -q)
-  223  docker rm $(docker ps -a -q)
-  224  clear
-  225  docker ps -a
-  226  docker run -d -p 8080:8080 jenkins
-  227  lear
-  228  clear
-  229  docker run -d -p 8080:8080 jenkins/jenkins
-  230  docker run -d -p 8090:8080 jenkins/jenkins
-  231  docker ps
-  232  clear
-  233  docker run -d jenkins/jenkins
-  234  docker ps
-  235  history
-========================================================================
-========================================================================
-SonarQube
-===========================
-What is SonarQube?
---------------------------
-	Quality management tool.
-	Release
-		Community - FREE - Opensource
-		Dev
-		Enterprise
-		Data Center
-	Written in Java
-		Pre - java 11
-	By SonarSource
-	Plugins Concept
-
-	Quality 
-	------------
-	Code Quality	=  FOCUS
-	Test Quality
-
-How to get Quality Reports of the Code?
-	- Peers Code Review	
-	- Static Code Review	= FOCUS
-		- Code would Review Code
-	AKA	- Rule would review code
-	AKA	- Rule(S) would review code
-	AKA	- Tool would review code
-	AKA	- SCA Tools would review code 
-			==> Generate Reports
-				     Contains
-					- What is the issues
-					- Who made it?
-					- When it was introduced?
-					- How to fix it?
-					- Where is that line? 
-				OF SINGLE file
-				Of whole Package
-	SCA tools
-	https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis
-
-Why do we need it?
-----------------------------
-	Quality Mangement tool
-	
-
-SonarQube Arch
+How to connect
+	Physical
+		SSH
+		NETWORK
+	Virtual 
+		SSH
+		NETWORK
+	Container
+		BECOME
+		NETWORK
 ===============================
-Scanner	==Runs on==> 	SourceCode	==Reports==>Server
+pull --> create -> Start --> Become 
+------------------------------------
+		RUN
 
-Server
-	Dashboard
-		Rules
-		Projects
-		Issues
-		Quality Profile
-		Gate
-		Admin
-		Search - ElasticSearch
-
- 	Backend
-		H2 - Trials
-		MSSQL
-		Oracle
-		Postgres
-
-Scanner
-	Download
-	Config
-https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/
-
-Source Code
-https://github.com/devopsschool-demo-labs-projects/java-sonarqube-helloworld-src
-	Which Project
-	Which Dir?
-	Version
-	
-
-======================================================
-How to install it? Linux
-===========================
-15.206.209.58
-centos
-
-=============================================================
-=============================================================
-How to install SonarQube in Linux?
-=========================================
-Step 1 - Install JAVA
-$ sudo yum list installed
-$ sudo yum list installed | grep java
-$ sudo yum remove <<all java7&8>
-$ yum install java-11-openjdk-devel
-$ systemctl stop firewalld
-$ systemctl disable firewalld
-
-Step 2 - Download and Install and run SonarQube server
-$ yum install wget unzip -y
-$ su centos	# Sonarqube must be started with normal user
-$ cd
-$ wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.1.35646.zip
-$ unzip sonarqube-8.4.1.35646.zip
-$ mv sonarqube-8.4.1.35646 sonarqube-server
-$ cd sonarqube-server/bin/linux-x86-64
-$ ./sonar.sh start
-$ ./sonar.sh status
-
-
-[centos@ip-172-31-9-53 sonarqube-server]$ ls -1
-bin		START-STOP
-conf		Config file for soq
-COPYING
-data		h2 data file
-elasticsearch	es
-extensions	plugins
-lib		sonarq lib
-logs
-temp
-web		web
-
-
-
-http://15.206.209.58:9000/
-admin
-admin
-
-
-
-https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-windows.zip
-
-
-SonarQube Arch
 ===============================
-Scanner	==Runs on ==> 	SourceCode	==Reports==>Server
+pull --> create -> Start --> DO NOT Become 
+------------------------------------
+		RUN -d
 
-C:\tools\sonarqube\scanner\sonar-scanner-cli-4.5.0.2216-windows\bin\sonar-scanner.bat
-on
-SRC code
+
+ 387  docker ps -a
+  388  clear
+  389  docker rm $(docker ps -a -q)
+  390  clear
+  391  docker ps -a
+  392  clear
+  393  docker run jenkins/jenkins
+  394  clear
+  395  id
+  396  ps
+  397  docker run jenkins/jenkins
+  398  clear
+  399  clear
+  400  docker run -d jenkins/jenkins
+  401  docker ps
+  402  docker ps -a
+  403  clear
+  404  ls
+  405  ps -eaf | grep containerd
+  406  docker run -d jenkins/jenkins
+  407  ps -eaf | grep containerd
+  408  clear
+  409  ls
+  410  id
+  411  ps
+  412  ps -eaf | grep 1885
+  413  ps -eaf | grep 1883
+  414  ps -eaf | grep 1864
+  415  ps -eaf | grep 1883
+  416  ps -eaf | grep 1864
+  417  ps -eaf | grep 1863
+  418  ps -eaf | grep 1413
+  419  ps -eaf | grep 1325
+  420  ps -eaf
+  421  clear
+  422  ls
+  423  ps -eaf | grep containerd
+  424  clear
+  425  ps -eaf
+  426  clear
+  427  docker ps
+  428  docker exec d8b2d7a44a96 ps -eaf
+  429  ps -eaf
+  430  clear
+  431  ls
+  432  docker ps
+  433  df -kh
+  434  ls
+  435  clear
+  436  ls /var/lib/docker/overlay2/c13f6924b264c6f8d4e553c21f476bab02065123163257d92baccf4b95d7ac43/merged
+  437  docker ps
+  438  docker exec d8b2d7a44a96 ls /
+  439  docker exec d8b2d7a44a96 df -kh
+  440  clear
+  441  ls
+  442  docker ps
+  443  docker inspect d8b2d7a44a96
+  444  ping 172.17.0.3
+  445  ping 172.17.0.2
+  446  ping 172.17.0.4
+  447  history
+
+==========================================================================================
+==========================================================================================
+Physcial Server 	Virutal Server 			Container is running
+is RUNNING 		is RUNNING			is RUNNING
+As long as		As long as 			As long as 
+PID 1 RUNNING 		PID 1 RUNNING 			PID 1 RUNNING 
+
+PID 1 is SYSTEMD	PID 1 is SYSTEMD		PID 1 is ANYTHING
+							Perl
+							Pythin
+							Java
+							/bin/bash
+=========================================================================
+  449  ps -eaf
+  450  clear
+  451  docker ps
+  452  docker exec d8b2d7a44a96 ps -eaf
+  453  docker exec d8b2d7a44a96 kill 1
+  454  docker ps
+  455  docker ps -a
+
+==================================================
+How to access a container
+- Go inside a container
+	--- EXEC	
+			Will Execute an Executables INSIDE A container
+			but Human can Interact with container with -it and shell(bash)
+	--- Attach
+			you can become or attached to a process of PID1
+
+456  history
+  457  clear
+  458  docker ps
+  459  docker exec 7bdf6f971d89 ls
+  460  docker exec 7bdf6f971d89 ps
+  461  clear
+  462  docker exec 7bdf6f971d89 df -kh
+  463  docker exec 7bdf6f971d89 dffff
+  464  clear]
+  465  clesr
+  466  clear
+  467  docker ps
+  468  docker exec -it 7bdf6f971d89 /bin/bash
+  469  docker ps
+  470  clear
+  471  docker ps
+  472  docker attach 7bdf6f971d89
+  473  docker ps
+  474  history
+
+
+- Access from outside of a container
+  482  docker inspect d8b2d7a44a96
+  483  clear
+  484  ping 172.17.0.2
+  485  curl http://172.17.0.2:8080
+  486  clear
+  487  docker ps
+  488  docker run -d -p 8080:8080 jenkins/jenkins
+  489  docker ps
+=============================================
+IP _ 13.235.113.166
+
+
+
+
+
+
+
+
+
+
 
 
 
